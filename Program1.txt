@@ -1,0 +1,55 @@
+1.      Create a table EMPLOYEE have the
+following fields (emp_id, name,city,dob,adhar_no)
+
+
+mysql> CREATE TABLE EMPLOYEE(Emp_id int,Name varchar(10),City Varchar(10), DOB date, Adhaar_no int);
+Query OK, 0 rows affected (0.47 sec)
+
+mysql> DESCRIBE EMPLOYEE;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| Emp_id    | int         | YES  |     | NULL    |       |
+| Name      | varchar(10) | YES  |     | NULL    |       |
+| City      | varchar(10) | YES  |     | NULL    |       |
+| DOB       | date        | YES  |     | NULL    |       |
+| Adhaar_no | int         | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> INSERT INTO EMPLOYEE (Emp_id,Name,City,DOB,Adhaar_no) VALUES (1001,'name 1','City 1', '2000-02-12',1817272917);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> SELECT * FROM EMPLOYEE;
++--------+--------+--------+------------+------------+
+| Emp_id | Name   | City   | DOB        | Adhaar_no  |
++--------+--------+--------+------------+------------+
+|   1001 | name 1 | City 1 | 2000-02-12 | 1817272917 |
++--------+--------+--------+------------+------------+
+1 row in set (0.00 sec)
+
+
+mysql> INSERT INTO EMPLOYEE (Emp_id,Name,City,DOB,Adhaar_no) VALUES (1002,'name 2','City 2', '2023-02-12',78698);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> SELECT * FROM EMPLOYEE;
++--------+--------+--------+------------+------------+
+| Emp_id | Name   | City   | DOB        | Adhaar_no  |
++--------+--------+--------+------------+------------+
+|   1001 | name 1 | City 1 | 2000-02-12 | 1817272917 |
+|   1002 | name 2 | City 2 | 2023-02-12 |      78698 |
++--------+--------+--------+------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE (Emp_id,Name,City,DOB,Adhaar_no) VALUES (1002,'name 2','City 2', '2023-02-12',786967854);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> SELECT * FROM EMPLOYEE;
++--------+--------+--------+------------+------------+
+| Emp_id | Name   | City   | DOB        | Adhaar_no  |
++--------+--------+--------+------------+------------+
+|   1001 | name 1 | City 1 | 2000-02-12 | 1817272917 |
+|   1002 | name 2 | City 2 | 2023-02-12 |      78698 |
+|   1002 | name 2 | City 2 | 2023-02-12 |  786967854 |
++--------+--------+--------+------------+------------+
+3 rows in set (0.00 sec)
