@@ -232,3 +232,5 @@ DESC PERSON;
 7. Delete the table STUDENT1.
 drop table student1;
 Query OK, 0 rows affected (0.34 sec)
+
+//ADD MYSQL> BEFORE QUERY
