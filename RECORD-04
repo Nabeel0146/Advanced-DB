@@ -1,0 +1,98 @@
+1.List all invoice items, avoid duplicates.
+
+mysql> select distinct invid from invoiceitem;
++-------+
+| invid |
++-------+
+|   103 |
++-------+
+1 row in set (0.02 sec)
+
+
+
+
+2.List the invoice details from 1st January 2024 to 31st march 2024 
+
+mysql> select invid from invoicemaster where invdate between '2023-01-01' and '2024-03-21';
++-------+
+| invid |
++-------+
+|   104 |
++-------+
+1 row in set (0.00 sec)
+
+
+3.List the customer details who not live in ‘tvm’. 
+mysql> select * from CUSTOMER where city!='tvm' order by city;
++-------+-------+----------+------+----------+
+| id    | name  | address  | city | phone    |
++-------+-------+----------+------+----------+
+| 10004 | Nihal | Chinkang | kkd  | 45674357 |
++-------+-------+----------+------+----------+
+1 row in set (0.00 sec)
+
+
+
+
+4.List the customers who have no phone number. 
+mysql> select * from CUSTOMER  where phone is NULL order by phone;
++-------+--------+---------+------+-------+
+| id    | name   | address | city | phone |
++-------+--------+---------+------+-------+
+| 10003 | roshan | newyork | tvm  | NULL  |
++-------+--------+---------+------+-------+
+1 row in set (0.00 sec)
+
+
+
+
+
+5.Display customer names in descending order. 
+mysql> select name from CUSTOMER  order by name desc;
++--------+
+| name   |
++--------+
+| roshan |
+| Nihal  |
++--------+
+2 rows in set (0.00 sec)
+
+
+
+
+6.Display the customer details sorted in ascending by city and descending by names.
+mysql> select name,city from CUSTOMER order by name desc,city;
++--------+------+
+| name   | city |
++--------+------+
+| roshan | tvm  |
+| Nihal  | kkd  |
++--------+------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+7.Find the customer names who have ‘e’ or ‘a’ in them and at least 3 characters in length
+mysql> select * from CUSTOMER where(name like "a" or name like "%e%") and name like "___%";
++-------+--------+---------+----------+------------+
+| id    | name   | address | city     | phone      |
++-------+--------+---------+----------+------------+
+| 10007 | jaseem | pala    | kottayam | 7894578945 |
++-------+--------+---------+----------+------------+
+1 row in set (0.00 sec)
+
+
+
+
+8.List the names of customers their names have ‘y’ in second position
+mysql> select * from CUSTOMER  where NAME LIKE "_y%";
++-------+------+---------+------+---------+
+| id    | name | address | city | phone   |
++-------+------+---------+------+---------+
+| 10008 | Aya  | seiko   | clt  | 5858945 |
++-------+------+---------+------+---------+
+1 row in set (0.00 sec)
+
+
