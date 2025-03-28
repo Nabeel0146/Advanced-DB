@@ -110,7 +110,7 @@ mysql> select pname from PRODUCT P where exists(select pid from invoiceitem II w
 1 row in set (0.00 sec)
 
 
-
+//VERIFIED
 
 
 
