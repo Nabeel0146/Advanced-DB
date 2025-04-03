@@ -3,7 +3,7 @@
 
 mysql> CREATE PROCEDURE show_tables_data()
     -> BEGIN
-    ->     SELECT * FROM CUSTOMER;
+    ->     SELECT * FROM CUSTOMER; 
     ->     SELECT * FROM invoicemaster;
     ->     SELECT * FROM invoiceitem;
     ->     SELECT * FROM PRODUCT;
