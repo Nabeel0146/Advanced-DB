@@ -57,11 +57,6 @@ Query OK, 0 rows affected (0.04 sec)
 
 
 
-
-
-
-
-
 2.Create a procedure to find greatest of 2 numbers.
 mysql> CREATE PROCEDURE greatest(IN a INT, IN b INT)
     -> BEGIN
@@ -90,10 +85,22 @@ Query OK, 0 rows affected (0.00 sec)
 
 
 
-
-
-
-
-
-
 3.Create a procedure to display invoice details of a particular customer.
+
+mysql> CREATE PROCEDURE invoicedetails(IN name VARCHAR(10))  SELECT IM.invid, IM.invdate, P.pname, II.quantity  FROM invoicemaster IM  INNER JOIN invoiceitem II ON IM.invid = II.invid  INNER JOIN PRODUCT P ON P.pid = II.pid  INNER JOIN CUSTOMER C ON IM.custid = C.id  WHERE C.name = name;
+
+mysql> CALL invoicedetails('roshan');
++-------+------------+--------+----------+
+| invid | invdate    | pname  | quantity |
++-------+------------+--------+----------+
+|   101 | 2023-03-29 | pencil |        8 |
+|   101 | 2023-03-29 | soap   |        5 |
+|   103 | 2024-12-31 | pen    |        8 |
+|   103 | 2024-12-31 | soap   |       12 |
++-------+------------+--------+----------+
+4 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+
