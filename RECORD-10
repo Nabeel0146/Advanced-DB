@@ -1,0 +1,59 @@
+1.     Create a trigger to handle updates to the customer table. 
+
+mysql> INSERT INTO CUSTOMER (id, name, city, phone) VALUES (1, 'John', 'New York
+', 123456789);
+Query OK, 1 row affected (0.11 sec)
+
+
+mysql> UPDATE CUSTOMER SET name = 'John Doe', city = 'Los Angeles', phone = 9876
+54321 WHERE id = 1;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM CUSTOMER;
+ERROR 1146 (42S02): Table 'INVOICE.cust' doesn't exist
+mysql> SELECT * FROM CUSTOMER;
++-------+----------+-----------+-------------+------------+
+| id    | name     | address   | city        | phone      |
++-------+----------+-----------+-------------+------------+
+|     1 | John Doe | NULL      | Los Angeles | 987654321  |
+| 10003 | roshan   | newyork   | tvm         | NULL       |
+| 10004 | Nihal    | Chinkang  | kkd         | 45674357   |
+| 10005 | Adil     | Nadapuram | mlp         | 438687     |
+| 10007 | jaseem   | pala      | kottayam    | 7894578945 |
+| 10008 | Aya      | seiko     | clt         | 5858945    |
++-------+----------+-----------+-------------+------------+
+6 rows in set (0.00 sec)
+
+
+mysql> UPDATE CUSTOMER
+    -> SET city = 'kozhikode'
+    -> WHERE id = 10003;
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> ^C
+mysql> SELECT * FROM CUSTOMER WHERE id = 10003;
++-------+--------+---------+-----------+-------+
+| id    | name   | address | city      | phone |
++-------+--------+---------+-----------+-------+
+| 10003 | roshan | newyork | kozhikode | NULL  |
++-------+--------+---------+-----------+-------+
+1 row in set (0.00 sec)
+
+
+
+mysql> SELECT * FROM CUSTOMER;
++-------+----------+-----------+-------------+------------+
+| id    | name     | address   | city        | phone      |
++-------+----------+-----------+-------------+------------+
+|     1 | John Doe | NULL      | Los Angeles | 987654321  |
+| 10003 | roshan   | newyork   | kozhikode   | NULL       |
+| 10004 | Nihal    | Chinkang  | kkd         | 45674357   |
+| 10005 | Adil     | Nadapuram | mlp         | 438687     |
+| 10007 | jaseem   | pala      | kottayam    | 7894578945 |
+| 10008 | Aya      | seiko     | clt         | 5858945    |
++-------+----------+-----------+-------------+------------+
+6 rows in set (0.00 sec)
+
+
