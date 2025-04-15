@@ -32,3 +32,4 @@ mysql> SELECT pname, price, price_range(price) AS price_range FROM PRODUCT;
 +--------+--------+-------------+
 3 rows in set (0.10 sec)
 
+//VERIFIED
