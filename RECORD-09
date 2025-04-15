@@ -1,0 +1,34 @@
+1.Create a function to calculate price_range(low, medium, high) of each product. If price<=5 indicate as low, upto 50 indicate as medium, and above as high.
+
+
+mysql> DELIMITER //
+mysql> 
+mysql> CREATE FUNCTION price_range(price INT)
+    -> RETURNS VARCHAR(10)
+    -> DETERMINISTIC
+    -> BEGIN
+    ->     DECLARE message VARCHAR(10);
+    -> 
+    ->     IF price <= 5 THEN
+    ->         SET message = 'low';
+    ->     ELSEIF price <= 50 THEN
+    ->         SET message = 'medium';
+    ->     ELSE
+    ->         SET message = 'high';
+    ->     END IF;
+    -> 
+    ->     RETURN message;
+    -> END //
+ERROR 1304 (42000): FUNCTION price_range already exists
+mysql> 
+mysql> DELIMITER ;
+mysql> SELECT pname, price, price_range(price) AS price_range FROM PRODUCT;
++--------+--------+-------------+
+| pname  | price  | price_range |
++--------+--------+-------------+
+| pen    |  51.00 | high        |
+| pencil |  30.60 | medium      |
+| soap   | 153.00 | high        |
++--------+--------+-------------+
+3 rows in set (0.10 sec)
+
