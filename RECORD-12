@@ -101,7 +101,7 @@ INVOICE> db.customer.updateOne(
 
 //VERIFIED
 
-
+?? COPY??
 
 4.Write a MongoDB query to delete the first matched document whose city is “calicut”.
 
